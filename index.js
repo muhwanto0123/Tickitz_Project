@@ -7,12 +7,12 @@ app.use(express.json())
 
 app.use(express.urlencoded({extended: false}))
 
+//Movies
 app.get("/movies", async (req, res) => {
     try { 
         const request = await database `SELECT * FROM movies`
         const requestMapping = request.map(
-            ({id, name, duration, genres, poster}) => ({
-                id,
+            ({name, duration, genres, poster}) => ({
                 name,
                 duration,
                 genres,
@@ -50,26 +50,24 @@ app.get("/movies/:id", async (req, res) => {
 app.post('/movies', async (req, res) => {
     try { 
         const {
-            id, 
             name,
             release_date,
             duration,
-            directed_by,
             genres,
+            directed_by,
             casts,
-            synopsis,
-            poster,
+            synopsys,
+            poster
          } = req.body
 
         const isInputValid =
-            id &&
             name &&
             release_date &&
             duration &&
-            directed_by &&
             genres &&
+            directed_by &&
             casts &&
-            synopsis &&
+            synopsys &&
             poster
         
         if (!isInputValid){
@@ -81,15 +79,14 @@ app.post('/movies', async (req, res) => {
          
         
         const request = await database `INSERT INTO movies
-            (id, name, release_date, duration, directed_by, genres, casts, synopsis, poster)
+            ( name,release_date,duration,genres,directed_by,casts,synopsys,poster)
          values
-            (${id}, ${name}, ${release_date}, ${duration}, ${genres}, ${directed_by}, ${casts}, ${synopsis}, ${poster} ) RETURNING id`
+            (${name}, ${release_date}, ${duration}, ${genres}, ${directed_by}, ${casts}, ${synopsys}, ${poster} ) RETURNING id`
 
         if (request.length > 0) {
             res.json({
                 status: true,
                 message: "insert data sucess",
-                // data: request,
             })
         }
     }catch(error){
@@ -98,6 +95,7 @@ app.post('/movies', async (req, res) => {
             message: "something wrong in our system",
             data: [],
         })
+        console.log(error)
     }
 })
 
@@ -152,6 +150,56 @@ app.delete("/movies/:id", async (req, res) => {
       });
     }
 });
+
+// Cinemas
+app.get("/cinemas", async (req, res) => {
+    try { 
+        const request = await database `SELECT * FROM cinemas`
+        const requestMapping = request.map(
+            ({name, city, address, show_times, price, logo}) => ({
+                name,
+                city,
+                address,
+                show_times,
+                price,
+                logo,
+            })
+        )
+        res.json({
+            status: true,
+            message: "data sucess",
+            data: requestMapping,
+        })
+    }catch(error){
+        console.log(error)
+    }
+})
+
+app.get("/cinemas/:id", async (req, res) => {
+    try { 
+        const { id } = req.params
+        const request = await database `SELECT * FROM movies WHERE id = ${id}`
+        res.json({
+            status: true,
+            message: "data sucess",
+            data: request,
+        })
+    }catch(error){
+        res.status(502).json({
+            status:false,
+            message: "something wrong in our system",
+            data: [],
+        })
+    }
+})
+
+
+//Users
+
+
+
+
+
 
 app.listen(port, () => {
     console.log(`example app listening ${port}`)
