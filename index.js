@@ -6,6 +6,30 @@ const database = require("./database.js")
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+
+app.get('/movies', async (req, res) => {
+    try{
+        const permintaan = await database`SELECT * FROM movies`
+        res.json({
+            status:true,
+            pesan:"berhasil ditampilkan",
+            data:permintaan
+        })
+    }catch(error){
+        console.log(error)
+    }
+})
+
+app.get('/movies/:id', async (req, res) => {
+    const id = Number(req.params.id)
+    const permintaan = await database`SELECT * FROM movies WHERE id=${id}`
+    res.json({
+        status:true,
+        pesan:`data dengan ID : ${id} telah behasil ditampilkan`,
+        data:permintaan
+    })
+})
+
 app.post('/movies', async (req, res) => {
     try {
         const { release_date, name, poster } = req.body;
@@ -42,6 +66,26 @@ app.post('/movies', async (req, res) => {
         });
     }
 });
+
+app.put('/movies/:id', async(req, res) => {
+    const id = Number(req.params.id)
+    const {release_date, name, poster} = req.body
+    const permintaan = await database`UPDATE movies SET release_date=${release_date}, name=${name}, poster=${poster} WHERE id=${id}`
+    res.json({
+        status:true,
+        pesan:`Data dengan ID : ${id} berhasil di update`
+    })
+})
+
+app.delete('/movies/:id/', async (req, res) => {
+    const id = Number(req.params.id)
+    const permintaan = await database`DELETE FROM movies WHERE id=${id}`
+    res.json({
+        status:true,
+        pesan:`Data dengan id=${id} telah dihapus`
+    })
+})
+
 
 
 app.listen(port, () => {
