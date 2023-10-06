@@ -1,6 +1,7 @@
+require("dotenv").config()
 const express = require("express") //method express
 const app = express()
-const port = 3000
+const port = process.env.CLIENT_PORT
 const database = require("./database.js")
 
 app.use(express.json())
@@ -89,5 +90,5 @@ app.delete('/movies/:id/', async (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`example app listening ${port}`)
+    console.log(`http://localhost:${port}`)
 })
