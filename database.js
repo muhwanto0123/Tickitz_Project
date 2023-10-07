@@ -1,3 +1,4 @@
+//sebagai server penghubung dengan database
 const postgres = require("postgres")
 
 const sql = postgres ({
