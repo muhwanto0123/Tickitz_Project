@@ -25,7 +25,7 @@ const modelMovies = {
     deleteSelectedMovies: async (id) => {
         const permintaan = await database`DELETE FROM movies WHERE id=${id}`
         return permintaan
-    }
+    },
 }
 
 module.exports = modelMovies
