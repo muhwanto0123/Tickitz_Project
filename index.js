@@ -1,9 +1,9 @@
 require("dotenv").config()
 const express = require("express") //method express
-const cors = require("cors")
-const helmet = require("helmet")
-const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
+// const cors = require("cors")
+// const helmet = require("helmet")
+// const bcrypt = require("bcrypt")
+// const jwt = require("jsonwebtoken")
 
 
 const app = express()
