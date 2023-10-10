@@ -1,5 +1,7 @@
-const router = require("express").Router()
-const moviescontroller = require("../controller/movies")
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const database = require("../database");
+const router = require("express").Router();
 
 // MIDDLEWARE FUNCTION
 const checkJwt = async (req, res, next) => {

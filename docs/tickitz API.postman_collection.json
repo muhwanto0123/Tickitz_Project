@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "b5ca50f0-0743-48d5-bedb-fc6fa8053058",
+		"name": "tickitz API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29337374"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Get All Movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Selected Movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"release_date\":\"2100-09-10\",\r\n    \"name\":\"katok bolong\",\r\n    \"poster\":\"https://movie_cinema.com/baju_bolong.png\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"release_date\":\"2020-12-12\",\r\n    \"name\":\"Paijo Mangan Sapi\",\r\n    \"poster\":\"https://www.movie-compeny.org/sapiMangan.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete IItem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cinema",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "seletected_allUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Detail me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsImZpcnN0X25hbWUiOiJmdWFkIiwibGFzdF9uYW1lIjoiYnVkaSIsInBob25lX251bWJlciI6IjA4ODEyMzEyMzEyMyIsInBhc3N3b3JkIjoiJDJiJDE1JGNGUGtXVXU0VVExSms5RHJ6VHBLVWVQaUZsTnNkTkVVUlVqeDdKTHJDUldwMmt4aEEwRlZhIiwicGhvdG9fcHJvZmlsZSI6Imh0dHBzOi8vZ2FtYmFyLm9yZy93YWx1eW8ucG5nIiwiZW1haWwiOiJidWRpQGV4YW1wbGUuY29tIiwiaWF0IjoxNjk2ODIzMzk4fQ.EhiHn9vIPhWUaq-CV32gV2w6hUQvspZqBXjwNbBixxY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"def@example.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddRegister",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\":\"fuad\",\r\n    \"last_name\":\"budi\",\r\n    \"phone_number\":\"088123123123\",\r\n    \"email\":\"budi@example.com\",\r\n    \"password\":\"321\",\r\n    \"photo_profile\":\"https://gambar.org/waluyo.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"budi@example.com\",\r\n    \"password\":\"321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImZpcnN0X25hbWUiOiJtdWRpIiwibGFzdF9uYW1lIjoid2FsdXlvIiwicGhvbmVfbnVtYmVyIjoiMDg4MzIxNDU2Nzg2IiwicGFzc3dvcmQiOiIkMmIkMTUkZjI4VmhvVGVIaHphUlhjcFNJa1RST2ZVYzRWVWo4eXUwMC54MG92WExaL0RSZVpuVGFpT2UiLCJwaG90b19wcm9maWxlIjoiaHR0cHM6Ly9nYW1iYXIub3JnL3dhbHV5by5wbmciLCJlbWFpbCI6ImRlZkBleGFtcGxlLmNvbSIsImlhdCI6MTY5NjgyMDEzOX0.Ytph3evxdXVZQhtaqpIE6sxbrtLyMQajXvTZY9-Vj1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\":\"wanto\",\r\n    \"last_name\":\"mardi\",\r\n    \"phone_number\":\"088321456786\",\r\n    \"email\":\"def@example.com\",\r\n    \"photo_profile\":\"https://gambar.org/waluyo.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/edit",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "password edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImZpcnN0X25hbWUiOiJtdWRpIiwibGFzdF9uYW1lIjoid2FsdXlvIiwicGhvbmVfbnVtYmVyIjoiMDg4MzIxNDU2Nzg2IiwicGFzc3dvcmQiOiIkMmIkMTUkZjI4VmhvVGVIaHphUlhjcFNJa1RST2ZVYzRWVWo4eXUwMC54MG92WExaL0RSZVpuVGFpT2UiLCJwaG90b19wcm9maWxlIjoiaHR0cHM6Ly9nYW1iYXIub3JnL3dhbHV5by5wbmciLCJlbWFpbCI6ImRlZkBleGFtcGxlLmNvbSIsImlhdCI6MTY5NjgyMDEzOX0.Ytph3evxdXVZQhtaqpIE6sxbrtLyMQajXvTZY9-Vj1U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"inpasswordsaya123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/edit/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"edit",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
