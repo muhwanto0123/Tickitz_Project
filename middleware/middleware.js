@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const middleware_jwt = {
+const middlewareJwt = {
     checkJwt: async (req, res, next) => {
         try {
           const token = req.headers.authorization.slice(7);
@@ -25,4 +25,4 @@ const middleware_jwt = {
     },
 }
 
-module.exports = middleware_jwt
+module.exports = middlewareJwt
