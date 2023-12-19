@@ -14,6 +14,7 @@ const cinemaRouter = require("./src/routers/cinemas");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 app.use(
     cors({
         origin: "*",
@@ -22,6 +23,7 @@ app.use(
 )
 
 app.use(helmet())
+
 app.use(moviesRouter);
 app.use(usersRouter);
 app.use(cinemaRouter);
