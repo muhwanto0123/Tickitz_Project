@@ -9,9 +9,9 @@ const express = require("express") //method express
 const app = express()
 const port = process.env.CLIENT_PORT
 
-const moviesRouter = require('./routers/movies')
-const usersRouter = require('./routers/users');
-
+const moviesRouter = require('./src/routers/movies')
+const usersRouter = require('./src/routers/users');
+const cinemaRouter = require('./src/routers/cinemas')
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
@@ -25,7 +25,7 @@ app.use(express.json())
 // app.use(helmet())
 app.use(moviesRouter)
 app.use(usersRouter)
-
+app.use(cinemaRouter)
 
 
 
