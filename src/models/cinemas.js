@@ -14,40 +14,40 @@ const modelCinemas = {
 
   postCinemas: async (payload) => {
     const {
-      movie_id,
       name,
       city,
       address,
       show_times,
       price,
-      logo
+      logo,
+      movie_id
     } = payload
 
-    const request = await database`INSERT INTO cinemas(movie_id,name,city,address,show_times,price,logo)
-        VALUES(${movie_id},${name},${city},${address},${show_times},${price},${logo}) RETURNING id `
+    const request = await database`INSERT INTO cinemas(name,city,address,show_times,price,logo, movie_id)
+        VALUES(${name},${city},${address},${show_times},${price},${logo}, ${movie_id}) RETURNING id`
 
     return request
   },
 
   editCinemas: async (id, payload) => {
     const {
-      movie_id,
       name,
       city,
       address,
       show_times,
       price,
-      logo
+      logo,
+      movie_id,
     } = payload
 
     const request = await database`UPDATE cinemas
-        SET movie_id = ${movie_id},
-            name = ${name},
+        SET name = ${name},
             city =${city},
             address =${address},
             show_times = ${show_times},
             price = ${price},
-            logo = ${logo}
+            logo = ${logo},
+            movie_id = ${movie_id}
         WHERE id = ${id};`
     return request
   },
