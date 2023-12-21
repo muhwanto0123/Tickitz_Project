@@ -25,11 +25,9 @@
 
 # About The Project
 
-Tickitz is a movie web application designed for users to discover, explore and enjoy movies. With an intuitive and user-friendly interface, Tickitz offers information about all the films showing, and upcoming ones. 
+Proyek "Tickitz Backend" adalah implementasi sistem pengelolaan backend yang canggih untuk platform pemesanan tiket daring, Tickitz. Dengan fokus utama pada kinerja yang optimal, keamanan tinggi, dan pengalaman pengguna yang mulus, proyek ini bertujuan untuk menyediakan fondasi yang kokoh bagi seluruh ekosistem Tickitz.
 
-Tickitz provides you with film details, just click on the image of the film you want to know information about, and of course you can order the film also on the web here, but don't forget to log in first
-
-To create Tickitz, Im using cutting-edge technologies like React Js, Bootstrap, Moment, Axios, PostMan, Redux toolkit, which will provide efficient experience.
+Fitur utama dari backend ini mencakup manajemen data film, lokasi bioskop, harga tiket, dan transaksi pengguna. Melalui antarmuka pemrograman aplikasi (API) yang kuat, proyek ini memungkinkan integrasi yang mudah dengan berbagai aplikasi frontend, seperti aplikasi web dan aplikasi seluler.
 
 ## Built With
 
